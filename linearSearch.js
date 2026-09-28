@@ -1,9 +1,11 @@
 function linearSearch(searchTerm, arr) {
   for (let i of arr){
-    const foundIt = i === searchTerm ? arr.indexOf(i):false;
-    if (foundIt){
-      return foundIt;
+    console.log(`Current value is: ${i} with index of ${arr.indexOf(i)}. We're looking for ${searchTerm}`)
+    if (i === searchTerm){
+      console.log(`We found ${i}!`)
+      return arr.indexOf(i);
     } else{
+      console.log(`Nope, not it!`)
       continue;
     }
   }
@@ -11,19 +13,29 @@ function linearSearch(searchTerm, arr) {
 }
 
 function globalLinearSearch(searchTerm, arr) {
-  let savedIndexes = [];
+  let indx=-1;
+  let indexesWeWant= [];
   for (let i of arr){
-    const foundIt = i === searchTerm ? arr.indexOf(i):false;
-    if (foundIt in savedIndexes){
-      foundIt=indexOf(arr[indexOf(i)-1])+1;
-      savedIndexes.push(foundIt);
-    }else if (foundIt){
-      savedIndexes.push(foundIt);
+    indx++
+    console.log(`Current value is ${i}, we want ${searchTerm}, index is ${arr.indexOf(i)}`);
+    if (indexesWeWant.includes(arr.indexOf(i))){
+      console.log("SEEN IT!");
+      console.log(`Its actually ${indx}`)
+      indexesWeWant.push(indx);
+    }else if (i === searchTerm){
+      console.log("Haven't seen it before!")
+      indexesWeWant.push(arr.indexOf(i))
+      console.log(indexesWeWant);
     } else{
       continue;
     }
   }
-  return savedIndexes;
+  if (arr[indexesWeWant[0]]===searchTerm){
+    return indexesWeWant;
+  } else{
+    return noIndexes;
+  };
 }
+
 
 module.exports = { linearSearch, globalLinearSearch };
