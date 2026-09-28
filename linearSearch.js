@@ -15,6 +15,7 @@ function linearSearch(searchTerm, arr) {
 function globalLinearSearch(searchTerm, arr) {
   let indx=-1;
   let indexesWeWant= [];
+  let noIndexes = [];
   for (let i of arr){
     indx++
     console.log(`Current value is ${i}, we want ${searchTerm}, index is ${arr.indexOf(i)}`);
