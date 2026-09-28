@@ -1,8 +1,17 @@
 function linearSearch(searchTerm, arr) {
-  return undefined;
+  for (let i of arr){
+    const foundIt = i === searchTerm ? arr.indexOf(i):false;
+    if (foundIt){
+      return foundIt;
+    } else{
+      continue;
+    }
+  }
+  return undefined
 }
 
-function globalLinearSearch(searchTerm, arr) {
+
+  //create empty list to be filled with saved indexes
   return [];
 }
 
